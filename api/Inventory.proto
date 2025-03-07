@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package api;
+
+option go_package = "/inventory";
+
+// 库存查询 gRPC 服务定义
+service InventoryService {
+  // 查询库存，根据产品ID返回库存数量
+  rpc QueryInventory (InventoryRequest) returns (InventoryResponse) {}
+}
+
+message InventoryRequest {
+  // 产品ID
+  string productId = 1;
+}
+
+message InventoryResponse {
+  // 库存数量
+  int32 stock = 1;
+}
+

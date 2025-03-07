@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package api;
+
+// 定义用于 API 网关的 gRPC 协议
+service APIGateway {
+    // 处理请求，支持二进制数据传输
+    rpc HandleRequest (Request) returns (Response) {}
+}
+
+message Request {
+    string path = 1;
+    map<string, string> headers = 2;
+    bytes body = 3;
+}
+
+message Response {
+    int32 status_code = 1;
+    map<string, string> headers = 2;
+    bytes body = 3;
+}
