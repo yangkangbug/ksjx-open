@@ -1,6 +1,3 @@
-
-
-
 ---
 
 ### **高性能API网关构建方案**
@@ -15,7 +12,7 @@
 | -------- | ------------------ | -------------------- |
 | 开发语言 | Go 1.21+           | 高性能、轻量级协程   |
 | Web框架  | Gin + gRPC Gateway | 高性能路由与gRPC支持 |
-| 服务发现 | Consul/Nacos       | 多数据中心支持       |
+| 服务发现 | Nacos              | 多数据中心支持       |
 | 缓存系统 | Redis Cluster      | 低延迟数据访问       |
 | 配置中心 | Apollo/Zookeeper   | 动态配置更新         |
 | 监控系统 | Prometheus+Grafana | 指标可视化           |
@@ -61,7 +58,7 @@ func initRouter() *gin.Engine {
 func createHandler(upstream string) gin.HandlerFunc {
     return func(c *gin.Context) {
         // 服务发现获取节点
-        instances := consul.GetService(upstream)
+        instances := nacos.GetService(upstream)
         // 负载均衡选择节点
         target := loadbalancer.Select(instances)
         // 反向代理请求
@@ -298,7 +295,6 @@ groups:
    ```bash
    # K8s部署示例
    helm install redis bitnami/redis-cluster --values prod-values.yaml
-   kubectl apply -f consul-statefulset.yaml
    ```
 
 2. **灰度发布策略**
