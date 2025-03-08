@@ -13,7 +13,7 @@ import (
 	"ksjx-open/service"
 
 	"github.com/gin-gonic/gin"
-	"github.com/golang-jwt/jwt"
+	"github.com/golang-jwt/jwt/v4"
 )
 
 // 模拟回源查询函数

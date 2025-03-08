@@ -3,12 +3,10 @@ package middleware
 import (
 	"net/http"
 
-	"ksjx-open/config"
-	"time"
-
 	"github.com/afex/hystrix-go/hystrix"
 	"github.com/gin-gonic/gin"
 	"golang.org/x/time/rate"
+	"ksjx-open/config"
 )
 
 // 定义全局令牌桶，限制请求速率（单位：qps 与 burst 可根据需要调整）

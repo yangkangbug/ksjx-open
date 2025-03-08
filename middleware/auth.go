@@ -7,7 +7,7 @@ import (
 	"ksjx-open/config"
 
 	"github.com/gin-gonic/gin"
-	"github.com/golang-jwt/jwt"
+	"github.com/golang-jwt/jwt/v4"
 )
 
 // CustomClaims 定义 JWT 的自定义 Claims 结构
