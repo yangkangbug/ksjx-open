@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: ksjx-api-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: console.nacos.io:80
+        namespace: public
+        context-path: /nacos
+        enabled: true
+      config:
+        server-addr: console.nacos.io:80
+        namespace: public
+        context-path: /nacos
+        file-extension: yml
+
+# Actuator endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+# Logging configuration
+logging:
+  level:
+    com.ksjx: DEBUG
+    com.alibaba.nacos: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
