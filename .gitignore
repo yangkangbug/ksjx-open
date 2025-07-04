@@ -54,3 +54,6 @@ pids
 *.tar.gz
 *.rar
 hs_err_pid*
+
+# Demo/Test scripts (optional)
+# demo.sh
